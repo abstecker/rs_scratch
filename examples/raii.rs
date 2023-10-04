@@ -18,7 +18,7 @@ fn main() {
     // Creating lots of boxes just for fun
     // There's no need to manually free memory!
     for id in 1usize..100 {
-        BoxDrop::create_box(id);
+        let _ = BoxDrop::create_box(id);
     }
 
     let _v = BoxDrop::spew_boxes(100, 1000);
