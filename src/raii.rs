@@ -15,7 +15,7 @@ impl BoxDrop {
     /// Allocates an integer on the heap
     #[must_use]
     pub fn create_box(box_id: usize) -> BoxDrop {
-        println!("Creating BoxDrop #{box_id}");
+        println!("BoxDrop #{box_id} is alive! It's alive!!!!");
         BoxDrop {
             box_id: Box::new(box_id),
         }
@@ -29,16 +29,26 @@ impl BoxDrop {
         }
         v
     }
+
+    #[must_use]
+    pub fn spew_boxed_boxes(count: usize, offset: usize) -> Vec<Box<BoxDrop>> {
+        let mut v = Vec::new();
+        for i in 0usize..count {
+            let bbox = Box::new(BoxDrop::create_box(i + offset));
+            v.push(bbox);
+        }
+        v
+    }
 }
 
 impl Display for BoxDrop {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        write!(f, "BoxDrop #{}", self.box_id)
+        write!(f, "Hello, my name is BoxDrop #{}", self.box_id)
     }
 }
 
 impl Drop for BoxDrop {
     fn drop(&mut self) {
-        println!("BoxDrop #{} dropped", self.box_id);
+        println!("BoxDrop #{} has fallen and can't get up.", self.box_id);
     }
 }
