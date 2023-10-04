@@ -5,11 +5,7 @@ fn main() {
     let vec1 = &vec_to_6[0..3];
     let vec2 = &vec_from_9[0..3];
 
-    let zipped: i32 = vec1.iter()
-        .zip(vec2)
-        .map(|(i, j)| i * j)
-        .sum();
+    let zipped: i32 = vec1.iter().zip(vec2).map(|(i, j)| i * j).sum();
 
     println!("{:?} {:?} {zipped}", vec1, vec2);
-
 }
