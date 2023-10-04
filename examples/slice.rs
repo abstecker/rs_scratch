@@ -1,6 +1,6 @@
 /// [The Slice Type](https://doc.rust-lang.org/book/ch04-03-slices.html)
 fn main() {
-    let mut s = String::from("hello world");
+    let s = String::from("hello world");
 
     let word = first_word(&s); // word will get the value 5
 

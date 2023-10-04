@@ -1,5 +1,8 @@
+#![warn(clippy::pedantic)]
+
 pub mod raii;
 
+#[must_use]
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }

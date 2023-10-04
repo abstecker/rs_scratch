@@ -13,6 +13,7 @@ pub struct BoxDrop {
 
 impl BoxDrop {
     /// Allocates an integer on the heap
+    #[must_use]
     pub fn create_box(box_id: usize) -> BoxDrop {
         println!("Creating BoxDrop #{box_id}");
         BoxDrop {
@@ -20,6 +21,7 @@ impl BoxDrop {
         }
     }
 
+    #[must_use]
     pub fn spew_boxes(count: usize, offset: usize) -> Vec<BoxDrop> {
         let mut v = Vec::new();
         for i in 0usize..count {
